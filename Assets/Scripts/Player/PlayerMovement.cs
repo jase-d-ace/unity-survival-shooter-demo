@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     void Awake() {
       //called regardless of whether the script is enabled or not.
       //this method just binds all of the components attached to the player character to variables that we can play with later.
-      floorMask = LayerMask.GetMask("floor");
+      floorMask = LayerMask.GetMask("Floor");
       anim = GetComponent<Animator>();
       playerRigidBody = GetComponent<Rigidbody>();
     }
@@ -35,10 +35,11 @@ public class PlayerMovement : MonoBehaviour {
       movement = movement.normalized * speed * Time.deltaTime; //deltaTime is time between updates
       playerRigidBody.MovePosition(transform.position + movement);
     }
+
     void Turning() {
       Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
       RaycastHit floorHit;
-      if(Physics.Raycast (camRay, out floorHit, camRayLength, floorMask)) {
+      if(Physics.Raycast(camRay, out floorHit, camRayLength, floorMask)) {
         Vector3 playerToMouse = floorHit.point - transform.position;
         playerToMouse.y = 0f;
         //quaternion is a class in unity
