@@ -20,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update ()
     {
+        //we're using regular update instead of fixed update because we aren't messing around with physics.
         //if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
         //{
             nav.SetDestination (player.position);
