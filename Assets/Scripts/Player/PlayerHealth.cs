@@ -47,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
+    //this function can be called by external scripts because we've defined it as "public"
     public void TakeDamage (int amount)
     {
         damaged = true;
