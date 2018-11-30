@@ -32,6 +32,7 @@ public class PlayerShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
+        //Input.GetButton("Fire1") is automatically mapped to left ctrl and left mouse by default by Unity
 		if(Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
         {
             Shoot ();

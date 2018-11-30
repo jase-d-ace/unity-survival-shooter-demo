@@ -32,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(isSinking)
         {
+            //using Translate means you disregard physics. if movement is dependent on physics, use MovePosition.
             transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
         }
     }
@@ -71,10 +72,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void StartSinking ()
     {
+        //this is called in an animation event, which you can find on the model of the Zombunny. You can have things like footstep audio attached to footfall animations
         GetComponent <UnityEngine.AI.NavMeshAgent> ().enabled = false;
         GetComponent <Rigidbody> ().isKinematic = true;
         isSinking = true;
-        //ScoreManager.score += scoreValue;
+        ScoreManager.score += scoreValue;
         Destroy (gameObject, 2f);
     }
 }
